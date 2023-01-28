@@ -1,0 +1,126 @@
+<div
+  fxLayout="row wrap"
+  fxLayout.lt-md="column"
+  fxLayoutAlign="start center"
+  fxLayoutGap="16px"
+>
+<section class="container-produto mat-elevation-z4">
+  <mat-card class="example-card">
+    <mat-card-header class="header-incluir-produto">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>REGISTRAR PRODUTO</mat-card-title>
+    </mat-card-header>
+    <div>
+    <table class="example-full-width" cellspacing="10"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>DESCRIÇÃO</mat-label>
+        <input matInput placeholder="Ex. Spaghetti">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>QTDE</mat-label>
+        <input matInput placeholder="Ex. 004x">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>UND</mat-label>
+        <input matInput #postalCode maxlength="5" placeholder="Ex. 1kg/250g/1GF">
+      </mat-form-field></td>
+    </tr></table>
+  </div>
+  <div>
+    <table class="example-full-width" cellspacing="10"><tr>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>VL. UNT</mat-label>
+        <input matInput placeholder="10.00">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <mat-label>VL. TOTAL R$</mat-label>
+        <input matInput placeholder="carregando...">
+      </mat-form-field></td>
+      </table>
+  </div>
+
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+      <p>
+        * Todos os campos de preenchimento são obrigatórios para ragistro do produto na compra.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button  color="primary" class="incluir-button">INCLUIR</button>
+      <button mat-raised-button class="limpar-button">LIMPAR</button>
+    </mat-card-actions>
+  </mat-card>
+</section>
+</div>
+<div
+  fxLayout="row wrap"
+  fxLayout.lt-md="column"
+  fxLayoutAlign="start center"
+  fxLayoutGap="16px"
+>
+<section class="container-compra">
+  <section class="example-container mat-elevation-z4" tabindex="0">
+    <mat-card-header class="header-produtos-registrados">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>PRODUTOS REGISTRADOS&nbsp;&nbsp;|&nbsp;&nbsp;
+        COMPRA 001&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        TOTAL EM R$: {{totalem}} </mat-card-title>
+      <mat-card-subtitle>10/Janeiro/2023</mat-card-subtitle>
+      <!-- <p class="total-em">TOTAL EM R$:</p> -->
+    </mat-card-header><hr>
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="descrição" sticky>
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+      </ng-container>
+
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="qtde">
+        <th mat-header-cell *matHeaderCellDef> qtde </th>
+        <td mat-cell *matCellDef="let element"> {{element.qtde}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="und">
+        <th mat-header-cell *matHeaderCellDef> Und </th>
+        <td mat-cell *matCellDef="let element"> {{element.und}} </td>
+      </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="vlunt">
+        <th mat-header-cell *matHeaderCellDef> vl.unt </th>
+        <td mat-cell *matCellDef="let element"> {{element.vlunt}} </td>
+      </ng-container>
+      <ng-container matColumnDef="vltotal">
+        <th mat-header-cell *matHeaderCellDef> vl.total </th>
+        <td mat-cell *matCellDef="let element"> {{element.vltotal}} </td>
+      </ng-container>
+
+      <!-- Star Column -->
+      <ng-container matColumnDef="star" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon>more_vert</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+</section>
+<div class="col" class="salvarcompras">
+  <mat-card-actions>
+    <button mat-raised-button color="primary" class="salvar-compra-button">SALVAR COMPRA </button>
+    <button mat-raised-button class="descartar-compra-button">DESCARTAR COMPRA</button>
+  </mat-card-actions>
+  </div>
+</div>

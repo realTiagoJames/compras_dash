@@ -1,0 +1,51 @@
+table {
+  width: 100%;
+}
+
+button {
+  margin: 16px 8px;
+}
+.example-card {
+  width: 350px;
+  height: 300px;
+  margin-left: 80px;
+  margin-top: 10px;
+  cursor: pointer;
+  color: rgb(7, 7, 7);
+}
+
+.example-card:hover {
+  background-color: rgb(228, 228, 228);
+  color: white;
+}
+
+
+.title{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+.dia-hora{
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+
+}
+
+.item-title{
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-top: 15px;
+
+}
+
+.item-title:hover{
+  color: white;
+}
+
+.item-desc {
+  font-size: 13px;
+  text-align: center;
+}
